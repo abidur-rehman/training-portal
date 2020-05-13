@@ -1,9 +1,9 @@
 import axios from 'axios';
 
-const baseURL = `http://localhost:5000`;
+// const baseURL = `http://localhost:5000`;
 
 export const restApi = axios.create({
-  baseURL,
+  // baseURL,
   timeout: 1000,
   headers: { 'Content-Type': 'application/json' }
 });
