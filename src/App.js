@@ -15,7 +15,6 @@ import Player from './components/player/player.component';
 
 const App = () => {
   const currentUser = useSelector(state => state.user.currentUser);
-  console.log(`currentUer ${currentUser}`);
   return (
     <div>
       <Header />
