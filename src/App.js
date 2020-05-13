@@ -1,24 +1,32 @@
 import React from 'react';
-import logo from './logo.svg';
+import { Switch, Route, Redirect } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+
 import './App.css';
 
-function App() {
+import HomePage from './pages/homepage/homepage.component';
+import SectionPage from './pages/section/section.component';
+import SignIn from './components/sign-in/sign-in.component';
+import SignUp from './components/sign-up/sign-up.component';
+
+import Header from './components/header/header.component';
+import Footer from './components/footer/footer.component';
+import Player from './components/player/player.component';
+
+const App = () => {
+  const currentUser = useSelector(state => state.user.currentUser);
+  console.log(`currentUer ${currentUser}`);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Header />
+      <Switch>
+        <Route exact path='/' component={HomePage} />
+        <Route path='/section' component={SectionPage} />
+        <Route path='/play' render={() => currentUser === null ? (<Redirect to='/'/>) : (<Player/>)} />
+        <Route exact path='/signin' render={() => currentUser !== null ? (<Redirect to='/'/>) : (<SignIn/>)} />
+        <Route exact path='/signup' render={() => currentUser !== null ? (<Redirect to='/'/>) : (<SignUp/>)} />
+      </Switch>
+      <Footer/>
     </div>
   );
 }
