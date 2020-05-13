@@ -5,7 +5,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 
 const usersRoutes = require('./routes/users-routes');
-const sectionRoutes = require('./routes/Section-routes');
+const sectionRoutes = require('./routes/section-routes');
 const HttpError = require('./models/http-error');
 
 const server = express();
@@ -51,7 +51,7 @@ server.use((error, req, res, next) => {
 const PORT = process.env.PORT || 5000
 const ENV = process.env.NODE_ENV || 'development'
 
-mongoose.connect(`mongodb://user2:password@localhost:27017/lms`)
+mongoose.connect(`mongodb://admin:example@mongo:27017/admin`)
   .then(() => {
     server.listen(PORT, () => {
       console.log(`Server listening on http://localhost:${PORT} in ${ENV}`)
