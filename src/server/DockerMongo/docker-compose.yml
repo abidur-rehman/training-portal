@@ -1,21 +1,54 @@
 version: '3.1'
 
-services:
+networks:
+  services-network:
+    driver: bridge
 
+services:
   mongo:
+    container_name: mongo
     image: mongo
     restart: always
     ports:
       - 27017:27017
     environment:
-      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_USERNAME: admin
       MONGO_INITDB_ROOT_PASSWORD: example
+    volumes:
+#    - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo-js:ro
+    - ./mongo-volume:/data/db
+    networks:
+      services-network:
+        aliases:
+          - db
 
   mongo-express:
+    container_name: mongo-express
     image: mongo-express
     restart: always
     ports:
       - 8081:8081
     environment:
-      ME_CONFIG_MONGODB_ADMINUSERNAME: root
+      ME_CONFIG_MONGODB_ADMINUSERNAME: admin
       ME_CONFIG_MONGODB_ADMINPASSWORD: example
+    networks:
+      services-network:
+        aliases:
+          - express
+
+  lms:
+    container_name: lms
+    build:
+      context: ../../../
+      dockerfile: Dockerfile
+    image: lms
+    restart: always
+    ports:
+      - 5000:5000
+    depends_on:
+      - mongo
+      - mongo-express
+    networks:
+      services-network:
+        aliases:
+          - lms

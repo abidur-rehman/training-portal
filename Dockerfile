@@ -5,6 +5,6 @@ RUN yarn
 COPY . ./
 RUN yarn build
 
-EXPOSE 3000
+EXPOSE 5000
 ENV NODE_ENV=production
 CMD [ "node", "src/server/server.js" ]
