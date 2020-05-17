@@ -1,10 +1,10 @@
 import axios from 'axios';
 
-// const baseURL = `http://localhost:5000`;
+// const baseURL = `http://192.168.1.4:31115`;
 
 export const restApi = axios.create({
   // baseURL,
-  timeout: 1000,
+  timeout: 5000,
   headers: { 'Content-Type': 'application/json' }
 });
 
@@ -22,7 +22,7 @@ restApi.interceptors.response.use((response) => {
   return Promise.reject(error);
 });
 
-export const authenticate = (email, password) => {
+export const authenticate = async (email, password) => {
   const requestParameters = {
     method: 'POST',
     url: '/api/users/login',
@@ -60,5 +60,9 @@ export const getSectionData = () => {
     method: 'GET',
     url: `/api/sectiondata`
   };
-  return restApi.request(requestParameters);
+  return restApi.request(requestParameters)
+    .then(response => response)
+    .catch((err) => {
+      return err.response;
+    });
 };

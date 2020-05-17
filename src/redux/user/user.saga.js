@@ -4,13 +4,17 @@ import { UserActionTypes } from './user.types';
 
 
 export function* authUser(action) {
-  const { email, password } = action.payload;
-  const response = yield call(authenticate, email, password);
-  const { data, status } = response;
-  if (data && status === 200) {
-    yield put({ type: UserActionTypes.SET_CURRENT_USER, payload: data });
-  } else {
-    yield put({ type: UserActionTypes.AUTH_USER_FAILURE, payload: data });
+  try {
+    const { email, password } = action.payload;
+    const response = yield call(authenticate, email, password);
+    const { data, status } = response;
+    if (data && status === 200) {
+      yield put({ type: UserActionTypes.SET_CURRENT_USER, payload: data });
+    } else {
+      yield put({ type: UserActionTypes.AUTH_USER_FAILURE, payload: data });
+    }
+  } catch (exception) {
+    throw exception;
   }
 }
 
