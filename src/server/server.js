@@ -51,7 +51,9 @@ server.use((error, req, res, next) => {
 const PORT = process.env.PORT || 5000
 const ENV = process.env.NODE_ENV || 'development'
 
-mongoose.connect(`mongodb://admin:example@mongo:27017/admin`)
+// mongoose.connect(`mongodb://user1:example@k8s-master:27017/admin`) //prod
+mongoose.connect(`mongodb://user1:example@localhost:27017/admin`) //local
+// mongoose.connect(`mongodb+srv://user1:example@cluster0-tbqr7.mongodb.net/mydb?retryWrites=true&w=majority`)
   .then(() => {
     server.listen(PORT, () => {
       console.log(`Server listening on http://localhost:${PORT} in ${ENV}`)

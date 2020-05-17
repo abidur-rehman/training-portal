@@ -1,0 +1,90 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lms
+  labels:
+    app: lms
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: lms
+  template:
+    metadata:
+      labels:
+        app: lms
+    spec:
+      containers:
+        - name: lms
+          image: abidurrehman/lms
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 5000
+              protocol: TCP
+---------
+apiVersion: v1
+kind: Service
+metadata:
+  name: lms
+  labels:
+    app: lms
+spec:
+  type: NodePort
+  ports:
+    - port: 5000
+      protocol: TCP
+      targetPort: 5000
+      nodePort: 31115
+  selector:
+    app: lms
+
+----------
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mongo-express
+  labels:
+    app: mongo-express
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mongo-express
+  template:
+    metadata:
+      labels:
+        app: mongo-express
+    spec:
+      containers:
+        - name: mongo-express
+          image: mongo-express
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8081
+              protocol: TCP
+          env:
+            - name: ME_CONFIG_MONGODB_SERVER
+              value: "k8s-master"
+            - name: ME_CONFIG_MONGODB_AUTH_DATABASE
+              value: "admin"
+            - name: ME_CONFIG_MONGODB_AUTH_USERNAME
+              value: "user1"
+            - name: ME_CONFIG_MONGODB_AUTH_PASSWORD
+              value: "example"
+-------
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongo-express
+  labels:
+    app: mongo-express
+spec:
+  type: NodePort
+  ports:
+    - port: 8081
+      protocol: TCP
+      targetPort: 8081
+      nodePort: 31119
+  selector:
+    app: mongo-express
+
