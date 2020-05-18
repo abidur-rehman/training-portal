@@ -14,10 +14,17 @@ export const StyledReactPlayer = styled(ReactPlayer)`
   position: absolute;
   top: 5%;
   left: 5%;
+  @media screen and (max-width: 800px) {
+    left: 15%;
+  }   
 `;
 
 export const NameDiv = styled.div`
   font-size: 20px;
   font-weight: bold;
   padding-left: 30%;
+  @media screen and (max-width: 800px) {
+    padding-left: 0;
+    text-align: center;
+  }  
 `;
