@@ -2,7 +2,7 @@ import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
-import './App.css';
+import { GlobalStyle } from './global.styles';
 
 import HomePage from './pages/homepage/homepage.component';
 import SectionPage from './pages/section/section.component';
@@ -17,6 +17,7 @@ const App = () => {
   const currentUser = useSelector(state => state.user.currentUser);
   return (
     <div>
+      <GlobalStyle />
       <Header />
       <Switch>
         <Route exact path='/' component={HomePage} />

@@ -7,6 +7,12 @@ export const FooterContainer = styled.div`
   display: flex;
   justify-content: space-between;
   margin: auto;
+  @media screen and (max-width: 800px) {
+    width: 100%;
+  } 
+  @media screen and (max-width: 530px) {
+    font-size: 20px;
+  } 
 `;
 
 export const Copyrightt = styled.div`
@@ -22,6 +28,9 @@ export const Copyrightt = styled.div`
     width: 30%;
     padding-top: 2%;
   }
+  @media screen and (max-width: 530px) {
+    padding-top: 2%;
+  } 
 `;
 
 export const OptionLink = styled(Link)`
@@ -29,4 +38,10 @@ export const OptionLink = styled(Link)`
   cursor: pointer;
   font-size: 13px;
   font-weight: bold;
+  @media screen and (max-width: 530px) {
+    padding: 0;
+  } 
+  @media screen and (max-width: 800px) {
+    padding: 2% 0;
+  }  
 `;

@@ -9,7 +9,7 @@ import {
     AddButton,
     NameContainer,
     PriceContainer
-} from './collection-styles.styles';
+} from './collection-items.styles';
 
 const CollectionItem = ({ item }) => {
   const history = useHistory();

@@ -28,4 +28,8 @@ export const ButtonContainer = styled(CustomButton)`
 export const Message = styled.div`
   font-size: 25px;
   padding: 10% 0 0 30%;
+  @media screen and (max-width: 800px) {
+    padding: 10%;
+    text-align: center;
+  }
 `;
