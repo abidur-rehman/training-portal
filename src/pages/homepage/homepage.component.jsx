@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { useHistory } from "react-router-dom";
 
 import Directory from '../../components/directory/directory.component';
+import QuizDirectory from '../../components/quiz-directory/quiz-directory.component';
 
 import {
   InfoContainer,
@@ -25,6 +26,7 @@ const HomePage = () => {
       </InfoContainer>
       <HomePageContainer>
         <Directory/>
+        <QuizDirectory/>
       </HomePageContainer>
     </div>
   )

@@ -6,6 +6,7 @@ import { GlobalStyle } from './global.styles';
 
 import HomePage from './pages/homepage/homepage.component';
 import SectionPage from './pages/section/section.component';
+import QuizPage from './pages/quiz/quiz.component';
 import SignIn from './components/sign-in/sign-in.component';
 import SignUp from './components/sign-up/sign-up.component';
 
@@ -22,6 +23,7 @@ const App = () => {
       <Switch>
         <Route exact path='/' component={HomePage} />
         <Route path='/section' component={SectionPage} />
+        <Route path='/quiz' component={QuizPage} />
         <Route path='/play' render={() => currentUser === null ? (<Redirect to='/'/>) : (<Player/>)} />
         <Route exact path='/signin' render={() => currentUser !== null ? (<Redirect to='/'/>) : (<SignIn/>)} />
         <Route exact path='/signup' render={() => currentUser !== null ? (<Redirect to='/'/>) : (<SignUp/>)} />

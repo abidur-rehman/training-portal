@@ -66,3 +66,15 @@ export const getSectionData = () => {
       return err.response;
     });
 };
+
+export const getQuizData = () => {
+  const requestParameters = {
+    method: 'GET',
+    url: `/api/quizdata`
+  };
+  return restApi.request(requestParameters)
+    .then(response => response)
+    .catch((err) => {
+      return err.response;
+    });
+};

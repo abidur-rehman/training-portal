@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<tincan xmlns="http://projecttincan.com/tincan.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<activities>
+		<activity id="ispring://quizzes/DE3751F3-46BE-4389-B33E-FE8F314F1F5C" type="http://adlnet.gov/expapi/activities/course">
+			<name lang="und">IAPP_Quizz - Exp API</name>
+			<description lang="und"></description>
+			<launch>res/index.html</launch>
+		</activity>
+	</activities>
+</tincan>

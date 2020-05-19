@@ -9,7 +9,7 @@ const getSectionData = async (req, res, next) => {
     sections = await Section.find({}, '');
   } catch (err) {
     const error = new HttpError(
-      'Fetching users failed, please try again later.',
+      'Fetching sections failed, please try again later.',
       500
     );
     return next(error);

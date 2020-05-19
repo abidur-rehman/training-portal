@@ -53,9 +53,26 @@ export const BackgroundImage = styled.div`
   width: 100%;
   height: 95%;
   background-size: cover;
-  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 350px 330px;
   margin-bottom: 5px;
   background-image: ${({ imageUrl }) => `url(${imageUrl})`};
+  @media screen and (max-width: 1400px) {
+    background-position: center;
+    background-size: 250px 330px;
+  } 
+  @media screen and (max-width: 1200px) {
+    background-position: center;
+    background-size: 250px 330px;
+  } 
+  @media screen and (max-width: 800px) {
+    background-position: center;
+    background-size: 280px 330px;
+  } 
+  @media screen and (max-width: 600px) {
+    background-position: center;
+    background-size: 230px 330px;
+  }   
 `;
 
 export const CollectionFooterContainer = styled.div`

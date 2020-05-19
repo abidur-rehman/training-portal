@@ -5,6 +5,8 @@ import storage from 'redux-persist/lib/storage';
 import userReducer from './user/user.reducer';
 import directoryReducer from './directory/directory.reducer';
 import sectionReducer from './section/section.reducer';
+import quizDirectoryReducer from './quiz-directory/quiz-directory.reducer';
+import quizReducer from './quiz/quiz.reducer';
 
 const persistConfig = {
   key: 'root',
@@ -15,7 +17,9 @@ const persistConfig = {
 const rootReducer = combineReducers({
   user: userReducer,
   directory: directoryReducer,
-  section: sectionReducer
+  quizDirectory: quizDirectoryReducer,
+  section: sectionReducer,
+  quiz: quizReducer
 });
 
 export default persistReducer(persistConfig, rootReducer);
