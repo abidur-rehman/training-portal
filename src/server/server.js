@@ -6,6 +6,7 @@ const mongoose = require('mongoose');
 
 const usersRoutes = require('./routes/users-routes');
 const sectionRoutes = require('./routes/section-routes');
+const quizRoutes = require('./routes/quiz-routes');
 const HttpError = require('./models/http-error');
 
 const server = express();
@@ -23,6 +24,7 @@ server.use((req, res, next) => {
 
 server.use('/api/users', usersRoutes);
 server.use('/api/sectiondata', sectionRoutes);
+server.use('/api/quizdata', quizRoutes);
 
 server.use(express.static(path.join(__dirname, '../../build')));
 

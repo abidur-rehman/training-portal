@@ -1,0 +1,7 @@
+const QuizActionTypes = {
+  FETCH_QUIZ_DATA: 'FETCH_QUIZ_DATA',
+  FETCH_QUIZ_DATA_SUCCESS: 'FETCH_QUIZ_DATA_SUCCESS',
+  FETCH_QUIZ_DATA_ERROR: 'FETCH_QUIZ_DATA_ERROR',
+};
+
+export default QuizActionTypes;

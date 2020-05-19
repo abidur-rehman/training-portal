@@ -15,6 +15,9 @@ const CollectionItem = ({ item }) => {
   const history = useHistory();
   const currentUser = useSelector(state => state.user.currentUser);
   const { name, imageUrl } = item;
+  const { type } = item;
+  const buttonLabel = type === 'video' ? 'Play Now' : 'Start Quiz';
+
   return (
       <CollectionItemContainer>
           <BackgroundImage className='image' imageUrl={imageUrl} />
@@ -23,8 +26,12 @@ const CollectionItem = ({ item }) => {
               <PriceContainer>{''}</PriceContainer>
           </CollectionFooterContainer>
         {currentUser !== null ? (
-          <AddButton onClick={() => (history.push({ pathname: '/play', state: { item }}))} inverted>
-            Play Now
+          <AddButton onClick={() => (
+            type === 'video' ? (history.push({ pathname: '/play', state: { item }})) : (
+              window.open(item.location, "_blank")
+            )
+          )} inverted>
+            {buttonLabel}
           </AddButton>
         ) : (
           <AddButton onClick={() => (history.push('/signin'))} inverted>
