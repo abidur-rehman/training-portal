@@ -7,11 +7,13 @@ import directoryReducer from './directory/directory.reducer';
 import sectionReducer from './section/section.reducer';
 import quizDirectoryReducer from './quiz-directory/quiz-directory.reducer';
 import quizReducer from './quiz/quiz.reducer';
+import menuReducer from './menu/menu.reducer';
+import profileReducer from './profile/profile.reducer';
 
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: ['user', 'directory', 'section']
+  whitelist: ['user', 'directory', 'section', 'profile']
 };
 
 const rootReducer = combineReducers({
@@ -19,7 +21,9 @@ const rootReducer = combineReducers({
   directory: directoryReducer,
   quizDirectory: quizDirectoryReducer,
   section: sectionReducer,
-  quiz: quizReducer
+  quiz: quizReducer,
+  menu: menuReducer,
+  profile: profileReducer
 });
 
 export default persistReducer(persistConfig, rootReducer);

@@ -16,8 +16,8 @@ const SectionPage = ({ match }) => {
 
   return (
     <SectionPageContainer>
-        <Route exact path={`${match.path}`} component={CollectionsOverviewContainer}/>
-        <Route path={`${match.path}/:collectionId`} component={CollectionPageContainer}/>
+        <Route exact path='/section/java' component={CollectionsOverviewContainer}/>
+        <Route path='section/java' component={CollectionPageContainer}/>
     </SectionPageContainer>
   );
 }

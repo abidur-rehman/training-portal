@@ -2,26 +2,39 @@ import React from 'react';
 
 import {
     FooterContainer,
-    Copyrightt,
+    LogoImage,
+    OptionLinkContainer,
     OptionLink
 } from './footer.styles';
 
 const Footer = () => {
   return (
     <FooterContainer>
-      <Copyrightt>Copyright © 2020 LMS, Ltd.</Copyrightt>
+      <LogoImage/>
+      <OptionLinkContainer>
         <OptionLink to='/'>
           About us
-        </OptionLink>
+        </OptionLink><div/>
         <OptionLink to='/'>
-          Privacy Policy
+          Contact us
         </OptionLink>
+      </OptionLinkContainer>
+      <OptionLinkContainer>
+        <OptionLink to='/'>
+          Help and Support
+        </OptionLink><div/>
+        <OptionLink to='/'>
+          Blog
+        </OptionLink>
+      </OptionLinkContainer>
+      <OptionLinkContainer>
+        <OptionLink to='/'>
+          Help and Policy
+        </OptionLink><div/>
         <OptionLink to='/'>
           Terms
         </OptionLink>
-        <OptionLink to='/'>
-          Help and Support
-        </OptionLink>
+      </OptionLinkContainer>
     </FooterContainer>
   );
 };

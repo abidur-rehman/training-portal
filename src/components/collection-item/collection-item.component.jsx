@@ -1,5 +1,4 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
 import { useHistory } from "react-router-dom";
 
 import {
@@ -13,10 +12,9 @@ import {
 
 const CollectionItem = ({ item }) => {
   const history = useHistory();
-  const currentUser = useSelector(state => state.user.currentUser);
   const { name, imageUrl } = item;
   const { type } = item;
-  const buttonLabel = type === 'video' ? 'Play Now' : 'Start Quiz';
+  const buttonLabel = type === 'video' ? 'Play Sample' : 'Start Quiz';
 
   return (
       <CollectionItemContainer>
@@ -25,7 +23,6 @@ const CollectionItem = ({ item }) => {
               <NameContainer>{name}</NameContainer>
               <PriceContainer>{''}</PriceContainer>
           </CollectionFooterContainer>
-        {currentUser !== null ? (
           <AddButton onClick={() => (
             type === 'video' ? (history.push({ pathname: '/play', state: { item }})) : (
               window.open(item.location, "_blank")
@@ -33,11 +30,6 @@ const CollectionItem = ({ item }) => {
           )} inverted>
             {buttonLabel}
           </AddButton>
-        ) : (
-          <AddButton onClick={() => (history.push('/signin'))} inverted>
-            Sign in
-          </AddButton>
-        )}
       </CollectionItemContainer>
   );
 };

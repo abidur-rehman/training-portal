@@ -17,20 +17,6 @@ const INITIAL_STATE = {
       imageUrl: '../images/docker.png',
       id: 3,
       linkUrl: 'section/java'
-    },
-    {
-      title: 'project management',
-      imageUrl: '../images/pmp.png',
-      size: 'large',
-      id: 4,
-      linkUrl: 'section/java'
-    },
-    {
-      title: 'html',
-      imageUrl: '../images/html.png',
-      size: 'large',
-      id: 5,
-      linkUrl: 'section/java'
     }
   ]
 };
