@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { NavLink } from 'react-router-dom';
 
 import FormInput from '../form-input/form-input.component';
 import CustomButton from '../custom-button/custom-button.component';
+import Header from '../header/header.component';
+import Footer from '../footer/footer.component';
 
 import { authUser } from '../../redux/user/user.actions';
 
@@ -31,6 +34,8 @@ const SignIn = () => {
   };
 
   return (
+    <>
+    <Header/>
       <SignInContainer>
         <SignInTitle>Welcome!</SignInTitle>
         <span>Sign in with your email and password</span>
@@ -57,7 +62,15 @@ const SignIn = () => {
           </ButtonsBarContainer>
         </form>
         <ErrorMessageContainer>{error ? error.message : ""}</ErrorMessageContainer>
+        <br/>
+        <span>Or goto</span>
+        <br/>
+        <NavLink to='signup'>
+          <CustomButton type='submit'> Sign Up </CustomButton>
+        </NavLink>
       </SignInContainer>
+      <Footer/>
+    </>
   );
 }
 

@@ -19,8 +19,9 @@ export function* authUser(action) {
 }
 
 export function* signUpUser(action) {
-  const { name, email, password } = action.payload;
-  const response = yield call(signup, name, email, password);
+  console.log(`User.saga signUpUser ${JSON.stringify(action.payload)}`);
+  const { name, firstname, lastname, email, password } = action.payload;
+  const response = yield call(signup, name, firstname, lastname, email, password);
   const { data, status } = response;
   if (data && status === 201) {
     yield put({ type: UserActionTypes.SET_CURRENT_USER, payload: data });

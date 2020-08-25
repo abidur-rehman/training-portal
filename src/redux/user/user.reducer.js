@@ -3,7 +3,7 @@ import { UserActionTypes } from './user.types';
 const INITIAL_STATE = {
   currentUser: null,
   loginError: null,
-  signUpError: null
+  signUpError: null,
 };
 
 const userReducer = (state = INITIAL_STATE, action) => {
@@ -13,7 +13,8 @@ const userReducer = (state = INITIAL_STATE, action) => {
         ...state,
         currentUser: action.payload,
         loginError: '',
-        signUpError: ''
+        signUpError: '',
+        updateProfileError: ''
       };
     case UserActionTypes.AUTH_USER_FAILURE:
       return {
@@ -25,6 +26,16 @@ const userReducer = (state = INITIAL_STATE, action) => {
         ...state,
         signUpError: action.payload
       };
+    case UserActionTypes.UPDATE_PROFILE_SUCCESS:
+      return {
+        ...state,
+        currentUser: {
+          ...state.currentUser,
+          firstname: action.payload.firstname,
+          lastname: action.payload.lastname,
+          email: action.payload.email
+        },
+      }
     default:
       return state;
   }

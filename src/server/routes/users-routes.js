@@ -22,6 +22,37 @@ router.post(
   usersController.signup
 );
 
+router.post(
+  '/updateProfile',
+  [
+    check('firstname')
+      .not()
+      .isEmpty(),
+    check('lastname')
+      .not()
+      .isEmpty(),
+    check('email')
+      .normalizeEmail()
+      .isEmail(),
+    check('emailOriginal')
+      .normalizeEmail()
+      .isEmail(),
+  ],
+  usersController.updateProfile
+);
+
+router.post(
+  '/updatePass',
+  [
+    check('email')
+      .normalizeEmail()
+      .isEmail(),
+    check('password'),
+    check('newPassword').isLength({ min: 6 })
+  ],
+  usersController.updatePass
+);
+
 router.post('/login', usersController.login);
 
 module.exports = router;

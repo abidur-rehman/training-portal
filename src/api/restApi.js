@@ -38,14 +38,51 @@ export const authenticate = async (email, password) => {
     });
 };
 
-export const signup = (name, email, password) => {
+export const signup = (name, firstname, lastname, email, password) => {
   const requestParameters = {
     method: 'POST',
     url: '/api/users/signup',
     data: {
       name,
+      firstname,
+      lastname,
       email,
       password
+    }
+  };
+  return restApi.request(requestParameters)
+    .then(response => response)
+    .catch((err) => {
+      return err.response;
+    });
+};
+
+export const updatePro = ({ firstname, lastname, email, emailOriginal }) => {
+  const requestParameters = {
+    method: 'POST',
+    url: '/api/users/updateProfile',
+    data: {
+      firstname,
+      lastname,
+      email,
+      emailOriginal
+    }
+  };
+  return restApi.request(requestParameters)
+    .then(response => response)
+    .catch((err) => {
+      return err.response;
+    });
+};
+
+export const updatePass = ({ email, password, newPassword }) => {
+  const requestParameters = {
+    method: 'POST',
+    url: '/api/users/updatePass',
+    data: {
+      email,
+      password,
+      newPassword
     }
   };
   return restApi.request(requestParameters)

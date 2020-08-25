@@ -5,6 +5,7 @@ export const SignInContainer = styled.div`
   display: flex;
   flex-direction: column;
   width: 380px;
+  min-height: 600px;
 `;
 
 export const SignInTitle = styled.h2`

@@ -12,11 +12,13 @@ export const selectCollectionsForPreview = createSelector(
   collections => collections ? Object.keys(collections).map(key => collections[key]) : []
 );
 
-export const selectCollection = collectionUrlParam =>
+export const selectCollection = collectionUrlParam => {
+  console.log(`selectCollection ${collectionUrlParam}`);
   createSelector(
     [selectCollections],
     collections => collections ? collections[collectionUrlParam] : null
   );
+}
 
 export const loadingSelector = createSelector(
   [selectSection],

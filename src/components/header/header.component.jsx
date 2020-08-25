@@ -2,6 +2,7 @@ import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { setCurrentUser } from '../../redux/user/user.actions';
+import { setMenuOpen } from '../../redux/menu/menu.actions';
 
 import {
     HeaderContainer,
@@ -9,41 +10,61 @@ import {
     OptionsContainer,
     OptionLink,
     LogoUpdated,
-    LoggedInDiv
+    LoggedInDiv,
+    SingInUpDiv,
+    LogoUser,
+    LogoText,
+    DivLeft,
+    MenuToggle,
+    RotateContainer
 } from './header.styles';
 
 const Header = () => {
+  // const [open, setOpen] = useState(false);
+  const open = useSelector(state => state.menu.open);
   const currentUser = useSelector(state => state.user.currentUser);
   const dispatch = useDispatch();
+
+  const toggleMenu = () => {
+    // setOpen(!open);
+    dispatch(setMenuOpen(!open));
+  };
+
+  const doLogout = () => {
+    dispatch(setCurrentUser(null));
+    dispatch(setMenuOpen(false));
+  }
+
   return (
     <HeaderContainer>
-      <LogoContainer to='/'>
-        <LogoUpdated />
-      </LogoContainer>
+      {currentUser ? (
+        <MenuToggle onClick={toggleMenu} open={open}>
+          <RotateContainer>
+            <span  />
+            <span  />
+            <span  />
+          </RotateContainer>
+        </MenuToggle>
+      ):(
+        <LogoContainer to={currentUser ? '/dashboard' : '/'}>
+          <LogoUpdated />
+        </LogoContainer>
+      )}
       <OptionsContainer>
-        <OptionLink to='/'>
-          VIEW ALL
-        </OptionLink>
-        <OptionLink to='/'>
-          CONTACT
-        </OptionLink>
         {currentUser ? (
           <LoggedInDiv>
-            <OptionLink to='/'>
-              PROFILE
-            </OptionLink>
-            <OptionLink as='div' onClick={() => dispatch(setCurrentUser(null))}>
+            <OptionLink as='div' onClick={doLogout}>
               SIGN OUT
             </OptionLink>
           </LoggedInDiv>
         ) : (
           <div>
-            <OptionLink to='/signin'>
-              SIGN IN
-            </OptionLink>
-            <OptionLink to='/signup'>
-              SIGN UP
-            </OptionLink>
+            <DivLeft/>
+            <SingInUpDiv>
+              <OptionLink to='/signin'>
+                <LogoUser/><LogoText>LOGIN / SIGN UP</LogoText>
+              </OptionLink>
+            </SingInUpDiv>
           </div>
         )}
       </OptionsContainer>

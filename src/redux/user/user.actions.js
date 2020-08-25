@@ -5,12 +5,26 @@ export const authUser = (email, password) => ({
   payload: { email, password }
 });
 
-export const signUpUser = (name, email, password) => ({
+export const signUpUser = (name, firstname, lastname, email, password) => ({
   type: UserActionTypes.SIGN_USER,
-  payload: { name, email, password }
+  payload: { name, firstname, lastname, email, password }
 });
+
+// export const updateProfile = (firstname, lastname, email, emailOriginal) => ({
+//   type: UserActionTypes.UPDATE_PROFILE,
+//   payload: { firstname, lastname, email, emailOriginal }
+// });
+
+// export const updatePassword = (email, password, newPassword) => ({
+//   type: UserActionTypes.UPDATE_PROFILE,
+//   payload: { email, password, newPassword }
+// });
 
 export const setCurrentUser = user => ({
   type: UserActionTypes.SET_CURRENT_USER,
   payload: user
+});
+
+export const resetMessage = () => ({
+  type: UserActionTypes.RESET_MESSAGE,
 });
