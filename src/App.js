@@ -21,7 +21,7 @@ const App = () => {
     <div>
       <GlobalStyle />
       <Switch>
-        <Route exact path='/' component={StartPage} />
+        <Route exact path='/' render={() => currentUser !== null ? (<DashboardPage/>) : (<StartPage/>)} />
         <Route path='/section' component={SectionPage} />
         <Route path='/dashboard' render={() => currentUser !== null ? (<DashboardPage/>) : (<StartPage/>)} />
         <Route path='/profile' render={() => currentUser !== null ? (<ProfilePage/>) : (<StartPage/>)} />
