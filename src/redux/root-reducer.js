@@ -9,6 +9,7 @@ import quizDirectoryReducer from './quiz-directory/quiz-directory.reducer';
 import quizReducer from './quiz/quiz.reducer';
 import menuReducer from './menu/menu.reducer';
 import profileReducer from './profile/profile.reducer';
+import startReducer from './start/start.reducer';
 
 const persistConfig = {
   key: 'root',
@@ -23,7 +24,8 @@ const rootReducer = combineReducers({
   section: sectionReducer,
   quiz: quizReducer,
   menu: menuReducer,
-  profile: profileReducer
+  profile: profileReducer,
+  start: startReducer
 });
 
 export default persistReducer(persistConfig, rootReducer);
