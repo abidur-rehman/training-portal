@@ -16,7 +16,8 @@ import {
     LogoText,
     DivLeft,
     MenuToggle,
-    RotateContainer
+    RotateContainer,
+    LogoImage,
 } from './header.styles';
 
 const Header = () => {
@@ -47,7 +48,7 @@ const Header = () => {
         </MenuToggle>
       ):(
         <LogoContainer to={currentUser ? '/dashboard' : '/'}>
-          <LogoUpdated />
+          <LogoImage/>
         </LogoContainer>
       )}
       <OptionsContainer>

@@ -45,7 +45,7 @@ const StartPage = () => {
       if (i >= arrRefs.length ) {
         i = 0;
       }
-    }, 4000);
+    }, 8000);
     return () => clearInterval(interval);
   }, []);
 

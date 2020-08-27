@@ -16,7 +16,7 @@ const CollectionPage = (props) => {
   return (
     <CollectionPageContainer>
       <CollectionItemsContainer>
-        {items.map(item => (
+        {items.slice(0,4).map(item => (
           <CollectionItem key={item.id} item={item} />
         ))}
       </CollectionItemsContainer>

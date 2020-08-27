@@ -12,7 +12,7 @@ const AnimateComponent = ({ show, children }) => {
     void animateRef.current.offsetWidth;
     animateRef.current.classList.add(...classes1);
     if (show) setRender(true);
-  }, [show]);
+  }, [children]);
 
   const onAnimationEnd = () => {
     if (!show) setRender(false);

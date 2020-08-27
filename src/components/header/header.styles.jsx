@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { ReactComponent as Logo } from '../../assets/vsco_logo.svg';
 import { ReactComponent as UserLogo } from '../../assets/user_2.svg';
+import Image from '../../assets/hsLogo.jpg';
 
 export const HeaderContainer = styled.div`
   height: 70px;
@@ -12,19 +13,16 @@ export const HeaderContainer = styled.div`
   @media screen and (max-width: 800px) {
     height: 60px;
     padding: 10px;
-    margin-bottom: 20px;
   }
   @media screen and (max-width: 530px) {
     height: 60px;
     padding: 5px;
-    margin-bottom: 20px;
   }
 `;
 
 export const LogoContainer = styled(Link)`
   height: 100%;
   width: 90px;
-  margin-top: 20px;
   @media screen and (max-width: 800px) {
     width: 50px;
     padding: 0;
@@ -59,7 +57,7 @@ export const LogoUpdated = styled(Logo)`
   @media screen and (max-width: 800px) {
     width: 100%;
     height: 80%;
-  }  
+  } 
 `;
 
 export const LogoUser = styled(UserLogo)`
@@ -70,11 +68,31 @@ export const LogoUser = styled(UserLogo)`
   margin-left: 10px;
   @media screen and (max-width: 800px) {
     height: 15%;
-  }  
+  } 
+`;
+
+export const LogoImage = styled.div`
+  background-image: url(${Image});
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 70px;
+  margin-left: 20px;
+  height: 80px;
+  display: flex;
+  @media screen and (max-width: 800px) {
+    width: 60px;
+    margin-top: -15px;
+  }
+  @media screen and (max-width: 530px) {
+    width: 65px;
+  }
 `;
 
 export const LogoText = styled.span`
   display: block;
+  @media screen and (max-width: 400px) {
+    font-size: 12px;
+  } 
 `;
 
 export const LoggedInDiv = styled.div`
