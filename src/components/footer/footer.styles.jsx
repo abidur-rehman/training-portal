@@ -25,6 +25,15 @@ export const LogoImage = styled.div`
   width: 50px;
   height: 50px;
   display: flex;
+  @media screen and (max-width: 800px) {
+    margin-top: 0px;
+  } 
+  @media screen and (max-width: 530px) {
+    margin-top: 5px;
+  } 
+  @media screen and (max-width: 400px) {
+    margin-top: 8px;
+  } 
 `;
 
 export const Copyright = styled.div`
@@ -44,25 +53,40 @@ export const Copyright = styled.div`
   } 
 `;
 
+export const OptionContainer = styled.div`
+  display: flex;
+  background-color: #6CB4EE;
+  border-radius: 5px;
+  border-left: 1px solid grey;
+  width: 90%;
+`;
+
 export const OptionLinkContainer = styled.div`
   background-color: #6CB4EE;
   margin-top: 0.3rem;
+  margin-left: 0.5rem;
   width: 8em;
   height: 40px;
   border-radius: 5px;
   font-color: white;
+  @media screen and (max-width: 600px) {
+    margin-top: 0;
+  } 
+  @media screen and (min-width: 900px) {
+    margin: 0 auto;
+  } 
 `;
 
 export const OptionLink = styled(Link)`
   padding: 2% 2%;
   cursor: pointer;
-  font-size: 13px;
+  font-size: 10px;
   font-weight: bold;
   white-space: nowrap;
   @media screen and (max-width: 530px) {
     padding: 0;
   } 
-  @media screen and (max-width: 800px) {
-    padding: 2% 0;
-  }  
+  @media screen and (min-width: 900px) {
+    font-size: 13px;
+  } 
 `;
