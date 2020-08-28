@@ -23,11 +23,19 @@ const initialState = {
         },
         {
           id: "3",
-          imageUrl: "../images/java3.png",
-          name: "The Elements of Java Styles",
+          imageUrl: "../images/pmp.png",
+          name: "Project Management",
           price: 35,
-          type: "video",
-          videoUrl: "videos/video3.mp4"
+          type: "quiz",
+          location: "quizes/scrum_1/index.html"
+        },
+        {
+          id: "4",
+          imageUrl: "../images/scrum.jpg",
+          name: "Basics of Scrum",
+          price: 35,
+          type: "quiz",
+          location: "quizes/scrum_1/index.html"
         }
       ]
     }

@@ -46,6 +46,14 @@ export const AddButton = styled(CustomButton)`
     opacity: 0.9;
     min-width: unset;
     padding: 0 10px;
+    font-size: 13px;
+  } 
+  @media screen and (max-width: 600px) {
+    display: block;
+    opacity: 0.9;
+    min-width: unset;
+    padding: 0 10px;
+    font-size: 12px;
   }  
 `;
 
