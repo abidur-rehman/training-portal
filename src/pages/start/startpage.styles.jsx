@@ -87,7 +87,7 @@ export const HeaderText = styled.div`
   text-align: justify;
   font-size: 40px;
   padding: 40px 20px 0 20px;
-  color: #4885db; 
+  color: #0B08B9; 
   @media screen and (max-width: 1200px) {
     text-align: left;
     font-size: 25px;

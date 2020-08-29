@@ -8,6 +8,7 @@ import {
     HeaderContainer,
     LogoContainer,
     OptionsContainer,
+    MenuContainer,
     OptionLink,
     LogoUpdated,
     LoggedInDiv,
@@ -38,37 +39,29 @@ const Header = () => {
 
   return (
     <HeaderContainer>
+      <LogoContainer to={'/'}>
+        <LogoImage/>
+      </LogoContainer>
       {currentUser ? (
-        <MenuToggle onClick={toggleMenu} open={open}>
-          <RotateContainer>
-            <span  />
-            <span  />
-            <span  />
-          </RotateContainer>
-        </MenuToggle>
-      ):(
-        <LogoContainer to={currentUser ? '/dashboard' : '/'}>
-          <LogoImage/>
-        </LogoContainer>
-      )}
-      <OptionsContainer>
-        {currentUser ? (
-          <LoggedInDiv>
-            <OptionLink as='div' onClick={doLogout}>
-              SIGN OUT
+        <MenuContainer>
+          <MenuToggle onClick={toggleMenu} open={open}>
+            <RotateContainer>
+              <span  />
+              <span  />
+              <span  />
+            </RotateContainer>
+          </MenuToggle>
+        </MenuContainer>
+      ) : (
+        <OptionsContainer>
+          <DivLeft/>
+          <SingInUpDiv>
+            <OptionLink to='/signin'>
+              <LogoUser/><LogoText>LOGIN / SIGN UP</LogoText>
             </OptionLink>
-          </LoggedInDiv>
-        ) : (
-          <div>
-            <DivLeft/>
-            <SingInUpDiv>
-              <OptionLink to='/signin'>
-                <LogoUser/><LogoText>LOGIN / SIGN UP</LogoText>
-              </OptionLink>
-            </SingInUpDiv>
-          </div>
-        )}
-      </OptionsContainer>
+          </SingInUpDiv>
+        </OptionsContainer>
+      )}
     </HeaderContainer>
   );
 };

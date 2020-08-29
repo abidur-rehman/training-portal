@@ -12,6 +12,7 @@ import {
   LinkItem,
   HomePageContainer } from './startpage.styles';
 import { useSelector } from 'react-redux';
+import SidebarComponent from '../../components/sidebar/sidebar.component';
 
 const StartPage = () => {
   const data = useSelector(state => state.start.data);
@@ -60,6 +61,7 @@ const StartPage = () => {
   return (
     <div>
       <Header/>
+      <SidebarComponent/>
       <InfoContainer>
         <LinkContainer>
           {

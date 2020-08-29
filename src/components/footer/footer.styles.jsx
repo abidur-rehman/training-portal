@@ -8,6 +8,7 @@ export const FooterContainer = styled.div`
   height: 70px;
   height: 50px;
   display: flex;
+  background-color: #6CB4EE;
   justify-content: space-between;
   margin: auto;
   @media screen and (max-width: 800px) {
@@ -22,12 +23,10 @@ export const LogoImage = styled.div`
   background-image: url(${Image});
   background-repeat: no-repeat;
   background-size: contain;
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   display: flex;
-  @media screen and (max-width: 800px) {
-    margin-top: 0px;
-  } 
+  margin: 3px 0px 3px 3px;
   @media screen and (max-width: 530px) {
     margin-top: 5px;
   } 
@@ -56,8 +55,6 @@ export const Copyright = styled.div`
 export const OptionContainer = styled.div`
   display: flex;
   background-color: #6CB4EE;
-  border-radius: 5px;
-  border-left: 1px solid grey;
   width: 90%;
 `;
 

@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { ReactComponent as Logo } from '../../assets/vsco_logo.svg';
 import { ReactComponent as UserLogo } from '../../assets/user_2.svg';
-import Image from '../../assets/hsLogo.jpg';
+import Image from '../../assets/hsLogo.png';
 
 export const HeaderContainer = styled.div`
   height: 70px;
@@ -44,6 +44,20 @@ export const OptionsContainer = styled.div`
   }
 `;
 
+export const MenuContainer = styled.div`
+  width: 70px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  @media screen and (max-width: 800px) {
+    width: 50px;
+  }
+  @media screen and (max-width: 530px) {
+    width: 50px;
+  }
+`;
+
 export const OptionLink = styled(Link)`
   padding: 10px 15px;
   cursor: pointer;
@@ -66,8 +80,16 @@ export const LogoUser = styled(UserLogo)`
   width: 25%;
   background-color: #6CB4EE;
   margin-left: 10px;
+  @media screen and (max-width: 1000px) {
+    width: 40px;
+    padding-top: 5px;
+  } 
   @media screen and (max-width: 800px) {
-    height: 15%;
+    width: 40px;
+    padding-top: 5px;
+  } 
+  @media screen and (max-width: 400px) {
+    width: 30px%;
   } 
 `;
 
@@ -75,21 +97,26 @@ export const LogoImage = styled.div`
   background-image: url(${Image});
   background-repeat: no-repeat;
   background-size: contain;
-  width: 70px;
+  width: 50px;
+  margin-top: 10px;
   margin-left: 20px;
   height: 80px;
   display: flex;
   @media screen and (max-width: 800px) {
-    width: 60px;
-    margin-top: -15px;
+    width: 50px;
+    margin-top: -10px;
   }
   @media screen and (max-width: 530px) {
-    width: 65px;
+    width: 45px;
+    margin-top: -2px;
   }
 `;
 
 export const LogoText = styled.span`
   display: block;
+  @media screen and (max-width: 800px) {
+    font-size: 14px;
+  } 
   @media screen and (max-width: 400px) {
     font-size: 12px;
   } 
@@ -100,8 +127,14 @@ export const LoggedInDiv = styled.div`
 `;
 
 export const SingInUpDiv = styled.div`
-  width: 60%;
+  width: 28%;
   float: right;
+  @media screen and (max-width: 1500px) {
+    width: 200px;
+  } 
+  @media screen and (max-width: 1200px) {
+    width: 220px;
+  } 
 `;
 
 export const DivLeft = styled.div`
