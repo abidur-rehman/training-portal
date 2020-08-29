@@ -6,6 +6,7 @@ import CollectionPageContainer from '../collection/collection.container';
 import AnimateComponent from './animate.component';
 
 import {
+  ContentContainer,
   InfoContainer,
   TextContainer,
   LinkContainer,
@@ -29,6 +30,7 @@ const StartPage = () => {
   const arrRefs = [oneRef, twoRef, threeRef, fourRef, fiveRef, sixRef];
   useEffect(() => {
     let i = 0;
+    oneRef.current.classList.add('blackBackground');
     const interval = setInterval(() => {
       if (i >= 1 ) {
         let elementPre = arrRefs[i-1].current;
@@ -61,27 +63,28 @@ const StartPage = () => {
   return (
     <div>
       <Header/>
-      <SidebarComponent/>
-      <InfoContainer>
-        <LinkContainer>
-          {
-            fields.map((item, index) => {
-              return <LinkItem ref={arrRefs[index]} key={index} onClick={handleClick(item, index)}></LinkItem>
-            })
-          }
-        </LinkContainer>
-        <AnimateComponent show={show}>
-          {item}
-        </AnimateComponent>
-      </InfoContainer>
-      <TextContainer>
-        With over 5000 candidates trained worldwide and still counting, a greater percentage of them are using our resources to pass their business analysis and Agile certifications, and improving their performance in the business environment.
-        This is the place for you to train as an Agile business analyst and collaborate with professionals in the project delivery environment to gain the voice for the profession. We are here at every level of your career providing the environment,
-        collaborations, resources, and information to manage and advance your career towards a safe and secure future.
-      </TextContainer>
-      <HomePageContainer>
-        <CollectionPageContainer/>
-      </HomePageContainer>
+      <ContentContainer>
+        <SidebarComponent/>
+        <InfoContainer>
+          <AnimateComponent show={show}>
+            {item}
+          </AnimateComponent>
+          <LinkContainer>
+            {
+              fields.map((item, index) => {
+                return <LinkItem ref={arrRefs[index]} key={index} onClick={handleClick(item, index)}></LinkItem>
+              })
+            }
+          </LinkContainer>
+        </InfoContainer>
+        <TextContainer>
+          With over 5000 candidates trained worldwide and still counting, a greater percentage of them are using our resources to pass their business analysis and Agile certifications, and improving their performance in the business environment.<br/><br/>
+          This is the place for you to train as an Agile business analyst and collaborate with professionals in the project delivery environment to gain the voice for the profession. We are here at every level of your career providing the environment, collaborations, resources, and information to manage and advance your career towards a safe and secure future.
+        </TextContainer>
+        <HomePageContainer>
+          <CollectionPageContainer/>
+        </HomePageContainer>
+      </ContentContainer>
     <Footer/>
     </div>
   )

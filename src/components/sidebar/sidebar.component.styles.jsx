@@ -11,13 +11,12 @@ import { ReactComponent as LogoutI } from '../../assets/logout.svg';
 import { ReactComponent as HomeI } from '../../assets/home.svg';
 
 export const SidebarContainer = styled.div`
-  position: absolute;
+  position: fixed;
   overflow: hidden;
   top: ${(props) => (props.open ? '0' : '-100%')};
   right: 0;
   z-index: 1;
-  margin-top: 90px;
-  margin-right: 40px;
+  margin-top: 70px;
   background-color: #6CB4EE;
   width: 280px;
   transition: ${(props) =>
@@ -25,8 +24,7 @@ export const SidebarContainer = styled.div`
   box-shadow: 0px 4px 20px -5px #e8e8e8;
   padding: 12px;
   @media screen and (max-width: 800px) {
-    margin-top: 70px;
-    margin-right: 10px;
+    margin-top: 60px;
   }
 `;
 

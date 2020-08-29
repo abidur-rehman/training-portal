@@ -7,6 +7,8 @@ import Image from '../../assets/hsLogo.png';
 export const HeaderContainer = styled.div`
   height: 70px;
   width: 100%;
+  position: fixed;
+  z-index: 999;
   display: flex;
   background-color: #6CB4EE;
   justify-content: space-between;

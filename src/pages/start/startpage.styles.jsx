@@ -2,6 +2,10 @@ import styled, { keyframes } from 'styled-components';
 import CustomButton from '../../components/custom-button/custom-button.component';
 import Image from '../../assets/tech-banner.jpg';
 
+export const ContentContainer = styled.div`
+  padding: 90px 20px;
+`;
+
 export const HomePageContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -14,8 +18,9 @@ export const InfoContainer = styled.div`
   background-image: url(${Image});
   background-repeat: no-repeat;
   background-size: cover;
+  border-radius: 15px;
   @media screen and (max-width: 700px) {
-    height: 250px;
+    height: 270px;
     font-size: 15px;
   }  
 `;
@@ -33,9 +38,10 @@ export const ButtonContainer = styled(CustomButton)`
 
 export const LinkContainer = styled.div`
   width: 350px;
-  margin: 0 auto 0 auto;
-  @media screen and (max-width: 400px) {
+  margin: -20px auto 0 auto;
+  @media screen and (max-width: 500px) {
     width: 250px;
+    margin: -20px auto 0 auto;
   }
 `;
 
@@ -54,7 +60,7 @@ export const LinkItem = styled.button`
   &.blackBackground {
     background-color: black;
   }
-  @media screen and (max-width: 400px) {
+  @media screen and (max-width: 500px) {
     width: 30px;
   }  
 `;
@@ -121,20 +127,22 @@ export const Text = styled.div`
 `;
 
 export const TextContainer = styled.div`
-  height: 200px;
+  height: 250px;
   width: 100%;
   margin-bottom: 15px;
   text-align: justify;
   font-size: 22px;
-  padding: 50px 10px 0 10px;
+  padding: 50px 10px 180px 10px;
   @media screen and (max-width: 1200px) {
     font-size: 18px;
   }
   @media screen and (max-width: 800px) {
+    height: 280px;
     font-size: 16px;
     padding: 20px 10px 230px 10px;
   }
-  @media screen and (max-width: 400px) {
+  @media screen and (max-width: 500px) {
+    height: 300px;
     font-size: 14px;
     padding: 20px 10px 270px 10px;
   }    
