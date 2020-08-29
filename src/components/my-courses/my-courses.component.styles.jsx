@@ -3,7 +3,16 @@ import styled from 'styled-components';
 export const Styles = styled.div`
   padding: 1rem;
   @media screen and (max-width: 950px) {
-    padding: 3rem;
+    padding: 3rem 1rem 1rem 0rem;
+    font-size: 13px;
+  }
+  @media screen and (max-width: 700px) {
+    padding: 3rem 1rem 1rem 0rem;
+    font-size: 12px;
+  }
+  @media screen and (max-width: 500px) {
+    padding: 3rem 1rem 1rem 0rem;
+    font-size: 10px;
   }
 `;
 
@@ -18,12 +27,18 @@ export const TableStyle = styled.table`
     background-color: #6CB4EE;
     border-bottom: 1px solid black;
     border-right: 1px solid black;
+    @media screen and (max-width: 500px) {
+      padding: 0.3rem;
+    }
   }
   td {
     margin: 1;
     padding: 1rem;
     border-bottom: 1px solid black;
     border-right: 1px solid black;
+      @media screen and (max-width: 500px) {
+      padding: 0.5rem 0.2rem;
+    }
 
     :last-child {
       border-right: 0;

@@ -7,15 +7,16 @@ import { ReactComponent as BookmarksI } from '../../assets/bookmarks.svg';
 import { ReactComponent as TestsI } from '../../assets/tests.svg';
 import { ReactComponent as CertificatesI } from '../../assets/certificates.svg';
 import { ReactComponent as ProfileI } from '../../assets/user.svg';
+import { ReactComponent as LogoutI } from '../../assets/logout.svg';
+import { ReactComponent as HomeI } from '../../assets/home.svg';
 
 export const SidebarContainer = styled.div`
-  position: absolute;
+  position: fixed;
   overflow: hidden;
   top: ${(props) => (props.open ? '0' : '-100%')};
-  left: 0;
+  right: 0;
   z-index: 1;
-  margin-top: 90px;
-  margin-left: 40px;
+  margin-top: 70px;
   background-color: #6CB4EE;
   width: 280px;
   transition: ${(props) =>
@@ -23,8 +24,7 @@ export const SidebarContainer = styled.div`
   box-shadow: 0px 4px 20px -5px #e8e8e8;
   padding: 12px;
   @media screen and (max-width: 800px) {
-    margin-top: 70px;
-    margin-left: 10px;
+    margin-top: 60px;
   }
 `;
 
@@ -102,6 +102,16 @@ export const CerficatesIcon = styled(CertificatesI)`
 `;
 
 export const ProfileIcon = styled(ProfileI)`
+  width: 25px;
+  height: 25px;
+`;
+
+export const LogoutIcon = styled(LogoutI)`
+  width: 25px;
+  height: 25px;
+`;
+
+export const HomeIcon = styled(HomeI)`
   width: 25px;
   height: 25px;
 `;

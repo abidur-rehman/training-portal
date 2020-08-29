@@ -1,15 +1,16 @@
 import styled from 'styled-components';
 
 export const SignInContainer = styled.div`
-  margin: 10% auto;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   width: 380px;
-  min-height: 600px;
+  min-height: 900px;
+  
 `;
 
 export const SignInTitle = styled.h2`
-  margin: 10px 0;
+  margin: 100px 0;
 `;
 
 export const ButtonsBarContainer = styled.div`

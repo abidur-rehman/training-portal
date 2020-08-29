@@ -35,7 +35,7 @@ export const ChartsContainer = styled.div`
 export const PieChartStyled = styled(PieChart)`
   > svg {
       > text {
-        font-size: 22px
+        font-size: 21px
       }
   }
   @media screen and (max-width: 950px) {
@@ -45,7 +45,7 @@ export const PieChartStyled = styled(PieChart)`
       width: 150px;
       height: 200px;
         > text {
-          font-size: 25px
+          font-size: 20px
         }
     }
 
