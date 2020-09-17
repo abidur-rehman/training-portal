@@ -7,7 +7,7 @@ import CustomButton from '../custom-button/custom-button.component';
 import Header from '../header/header.component';
 import Footer from '../footer/footer.component';
 
-import { authUser } from '../../redux/user/user.actions';
+import { authUser, resetMessage } from '../../redux/user/user.actions';
 
 import {
   SignInContainer,
@@ -33,6 +33,10 @@ const SignIn = () => {
     setCredentials({ ...credentials, [name]: value });
   };
 
+  const handleFocus = event => {
+    dispatch(resetMessage());
+  };
+
   return (
     <>
     <Header/>
@@ -45,6 +49,7 @@ const SignIn = () => {
               name='email'
               type='email'
               handleChange={handleChange}
+              onFocus={handleFocus}
               value={email}
               label='email'
               required
@@ -54,6 +59,7 @@ const SignIn = () => {
               type='password'
               value={password}
               handleChange={handleChange}
+              onFocus={handleFocus}
               label='password'
               required
           />
@@ -61,7 +67,7 @@ const SignIn = () => {
             <CustomButton type='submit'> Sign in </CustomButton>
           </ButtonsBarContainer>
         </form>
-        <ErrorMessageContainer>{error ? error.message : ""}</ErrorMessageContainer>
+        <ErrorMessageContainer>{error ? error : ""}</ErrorMessageContainer>
         <br/>
         <span>Or goto</span>
         <br/>

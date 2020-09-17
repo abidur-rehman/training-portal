@@ -1,7 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { setCurrentUser } from '../../redux/user/user.actions';
 import { setMenuOpen } from '../../redux/menu/menu.actions';
 
 import {
@@ -10,8 +9,6 @@ import {
     OptionsContainer,
     MenuContainer,
     OptionLink,
-    LogoUpdated,
-    LoggedInDiv,
     SingInUpDiv,
     LogoUser,
     LogoText,
@@ -31,11 +28,6 @@ const Header = () => {
     // setOpen(!open);
     dispatch(setMenuOpen(!open));
   };
-
-  const doLogout = () => {
-    dispatch(setCurrentUser(null));
-    dispatch(setMenuOpen(false));
-  }
 
   return (
     <HeaderContainer>

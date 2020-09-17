@@ -3,39 +3,39 @@ import SectionActionTypes from './section.types';
 const initialState = {
   loading: true,
   collections: {
-    java: {
+    samples: {
       items: [
         {
           id: "1",
-          imageUrl: "../images/java1.jpeg",
-          name: "Java Basics",
+          imageUrl: "../images/ba_framework.svg",
+          name: "Business Analysis Core Concept",
           price: 25,
           type: "video",
-          videoUrl: "videos/video1.mp4"
+          videoUrl: "data/videos/ba_core_concept.mp4"
         },
         {
           id: "2",
-          imageUrl: "../images/java2.jpeg",
-          name: "Beginning Programming with Java",
+          imageUrl: "../images/stakeholder_manage.svg",
+          name: "Managing Stakeholder",
           price: 18,
           type: "video",
-          videoUrl: "videos/video2.mp4"
+          videoUrl: "data/videos/stakeholders.mp4"
         },
         {
           id: "3",
-          imageUrl: "../images/pmp.png",
-          name: "Project Management",
+          imageUrl: "../images/risk_manage.svg",
+          name: "Risk Management",
           price: 35,
-          type: "quiz",
-          location: "quizes/scrum_1/index.html"
+          type: "pdf",
+          location: "data/pdfs/risk_manage.pdf"
         },
         {
           id: "4",
-          imageUrl: "../images/scrum.jpg",
-          name: "Basics of Scrum",
+          imageUrl: "../images/quiz.svg",
+          name: "Sample Quiz",
           price: 35,
           type: "quiz",
-          location: "quizes/scrum_1/index.html"
+          location: "data/quizes/sample_quiz_1/index.html"
         }
       ]
     }

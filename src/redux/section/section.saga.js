@@ -12,6 +12,6 @@ export function* fetchSectionData() {
   }
 }
 
-export function* watchfetchSectionData() {
+export function* watchFetchSectionData() {
   yield takeEvery(SectionActionTypes.FETCH_SECTION_DATA, fetchSectionData);
 }

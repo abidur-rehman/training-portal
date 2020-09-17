@@ -11,8 +11,8 @@ import {
 
 const CollectionPage = (props) => {
   const collections = useSelector(state => state.section.collections);
-  const { java = {}} = collections;
-  const { items = []} = java;
+  const { samples = {}} = collections;
+  const { items = []} = samples;
   return (
     <CollectionPageContainer>
       <CollectionItemsContainer>

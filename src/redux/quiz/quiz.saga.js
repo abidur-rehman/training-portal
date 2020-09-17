@@ -12,6 +12,6 @@ export function* fetchQuizData() {
   }
 }
 
-export function* watchfetchQuizData() {
+export function* watchFetchQuizData() {
   yield takeEvery(QuizActionTypes.FETCH_QUIZ_DATA, fetchQuizData);
 }
