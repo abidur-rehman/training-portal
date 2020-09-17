@@ -31,7 +31,7 @@ const Footer = () => {
         </OptionLinkContainer>
         <OptionLinkContainer>
           <OptionLink to='/'>
-            Help and Policy
+            Privacy and Policy
           </OptionLink><div/>
           <OptionLink to='/'>
             Terms

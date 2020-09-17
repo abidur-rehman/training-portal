@@ -2,13 +2,14 @@ const express = require('express');
 const path = require('path');
 const fs = require('fs');
 const bodyParser = require('body-parser');
-const mongoose = require('mongoose');
+const envConfig = require('./config/config');
 
 const usersRoutes = require('./routes/users-routes');
 const sectionRoutes = require('./routes/section-routes');
 const quizRoutes = require('./routes/quiz-routes');
 const HttpError = require('./models/http-error');
 
+envConfig();
 const server = express();
 server.use(bodyParser.json());
 server.use((req, res, next) => {
@@ -22,9 +23,9 @@ server.use((req, res, next) => {
   next();
 });
 
-server.use('/api/users', usersRoutes);
-server.use('/api/sectiondata', sectionRoutes);
-server.use('/api/quizdata', quizRoutes);
+// server.use('/api/users', usersRoutes);
+// server.use('/api/sectiondata', sectionRoutes);
+// server.use('/api/quizdata', quizRoutes);
 
 server.use(express.static(path.join(__dirname, '../../build')));
 
@@ -50,17 +51,22 @@ server.use((error, req, res, next) => {
   res.json({ message: error.message || 'An unknown error occurred!' });
 });
 
-const PORT = process.env.PORT || 5000
-const ENV = process.env.NODE_ENV || 'development'
+const PORT = global.gConfig.PORT || 5000
+const HOST = global.gConfig.HOST || '127.0.0.1'
+const ENV = global.gConfig.ENV || 'development'
 
-mongoose.connect(`mongodb://user1:example@k8s-master:27017/admin`) //prod
+server.listen(PORT, () => {
+  console.log(`Server listening on http://localhost:${PORT} in ${ENV}`);
+});
+
+// mongoose.connect(`mongodb://user1:example@k8s-master:27017/admin`) //prod
 // mongoose.connect(`mongodb://user1:example@localhost:27017/admin`) //local
 // mongoose.connect(`mongodb+srv://user1:example@cluster0-tbqr7.mongodb.net/mydb?retryWrites=true&w=majority`)
-  .then(() => {
-    server.listen(PORT, () => {
-      console.log(`Server listening on http://localhost:${PORT} in ${ENV}`)
-    });
-  })
-  .catch(err => {
-    console.log(err);
-  });
+//   .then(() => {
+//     server.listen(PORT, () => {
+//       console.log(`Server listening on http://localhost:${PORT} in ${ENV}`)
+//     });
+//   })
+//   .catch(err => {
+//     console.log(err);
+//   });

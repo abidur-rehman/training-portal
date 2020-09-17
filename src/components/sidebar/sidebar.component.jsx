@@ -38,11 +38,11 @@ const SidebarComponent = () => {
         </SidebarMenuItem>
         <SidebarMenuItem>
           <CoursesInIcon/>
-          <SidebarMenuItemLabel>Courses in progress</SidebarMenuItemLabel>
+          <SidebarMenuItemLabel onClick={() => goToPage('/coursesInProg')}>Courses in progress</SidebarMenuItemLabel>
         </SidebarMenuItem>
         <SidebarMenuItem>
           <CoursesCompIcon/>
-          <SidebarMenuItemLabel>Courses completed</SidebarMenuItemLabel>
+          <SidebarMenuItemLabel onClick={() => goToPage('/coursesCompl')}>Courses completed</SidebarMenuItemLabel>
         </SidebarMenuItem>
         <SidebarMenuItem>
           <BookmarksIcon/>

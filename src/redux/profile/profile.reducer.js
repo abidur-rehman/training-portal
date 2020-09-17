@@ -1,21 +1,31 @@
 import { ProfileActionTypes } from './profile.types';
 
 const INITIAL_STATE = {
-  currentProfile: null,
   loginError: null,
   error: { text: null },
-  message: { text: null }
+  message: { text: null },
+  isLoading: false,
 };
 
-const userReducer = (state = INITIAL_STATE, action) => {
+const profileReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case ProfileActionTypes.UPDATE_PROFILE_SUCCESS:
       return {
         ...state,
         message: {
           ...state.message,
-          text: action.payload.message
-        }
+          text: action.payload
+        },
+        isLoading: false
+      }
+    case ProfileActionTypes.UPDATE_PASSWORD_SUCCESS:
+      return {
+        ...state,
+        message: {
+          ...state.message,
+          text: action.payload
+        },
+        isLoading: false
       }
     case ProfileActionTypes.FORM_ERROR:
       return {
@@ -31,15 +41,22 @@ const userReducer = (state = INITIAL_STATE, action) => {
         error: {
           ...state.error,
           text: action.payload
-        }
+        },
+        isLoading: false
       };
     case ProfileActionTypes.UPDATE_PASSWORD_FAILURE:
       return {
         ...state,
         error: {
           ...state.error,
-          text: action.payload.message
-        }
+          text: action.payload
+        },
+        isLoading: false
+      };
+    case ProfileActionTypes.UPDATE_LOADER:
+      return {
+        ...state,
+        isLoading: true
       };
     case ProfileActionTypes.RESET_MESSAGE:
       return {
@@ -58,4 +75,4 @@ const userReducer = (state = INITIAL_STATE, action) => {
   }
 };
 
-export default userReducer;
+export default profileReducer;

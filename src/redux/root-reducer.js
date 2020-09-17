@@ -10,11 +10,12 @@ import quizReducer from './quiz/quiz.reducer';
 import menuReducer from './menu/menu.reducer';
 import profileReducer from './profile/profile.reducer';
 import startReducer from './start/start.reducer';
+import courseReducer from './course/course.reducer';
 
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: ['user', 'directory', 'section', 'profile']
+  whitelist: ['user', 'directory', 'course', 'profile']
 };
 
 const rootReducer = combineReducers({
@@ -25,7 +26,8 @@ const rootReducer = combineReducers({
   quiz: quizReducer,
   menu: menuReducer,
   profile: profileReducer,
-  start: startReducer
+  start: startReducer,
+  course: courseReducer
 });
 
 export default persistReducer(persistConfig, rootReducer);

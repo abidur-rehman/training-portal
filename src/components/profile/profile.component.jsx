@@ -23,6 +23,7 @@ const Profile = () => {
     password: '', newPassword: '', repNewPassword: ''
   });
   const message = useSelector(state => state.profile.message);
+  const isLoading = useSelector(state => state.profile.isLoading);
   const error = useSelector(state => state.profile.error);
   const dispatch = useDispatch();
   const { password, newPassword, repNewPassword } = pass;
@@ -157,6 +158,7 @@ const Profile = () => {
       </ProfileContainer>
       <ErrorMessageContainer>{error ? error.text : ''}</ErrorMessageContainer>
       <MessageContainer>{message ? message.text : ''}</MessageContainer>
+      <MessageContainer>{isLoading ? 'Saving...' : ''}</MessageContainer>
     </>
   );
 }

@@ -1,8 +1,10 @@
 import { all } from 'redux-saga/effects';
 import { watchAuthUser, watchSignUpUser } from './user/user.saga';
 import { watchUpdateProfile, watchUpdatePassword } from './profile/profile.saga';
-import { watchfetchSectionData } from './section/section.saga';
-import { watchfetchQuizData } from './quiz/quiz.saga';
+import { watchFetchSectionData } from './section/section.saga';
+import { watchFetchQuizData } from './quiz/quiz.saga';
+import { watchFetchCourseData, watchUpdateUserCourse,
+  watchFetchCourseInProgressData, watchFetchCourseComplData } from './course/course.saga';
 
 export default function* rootSaga() {
   yield all([
@@ -10,7 +12,11 @@ export default function* rootSaga() {
     watchSignUpUser(),
     watchUpdateProfile(),
     watchUpdatePassword(),
-    watchfetchSectionData(),
-    watchfetchQuizData()
+    watchFetchSectionData(),
+    watchFetchQuizData(),
+    watchFetchCourseData(),
+    watchUpdateUserCourse(),
+    watchFetchCourseInProgressData(),
+    watchFetchCourseComplData()
   ]);
 }

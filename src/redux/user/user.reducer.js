@@ -26,7 +26,7 @@ const userReducer = (state = INITIAL_STATE, action) => {
         ...state,
         signUpError: action.payload
       };
-    case UserActionTypes.UPDATE_PROFILE_SUCCESS:
+    case UserActionTypes.USER_UPDATE_PROFILE_SUCCESS:
       return {
         ...state,
         currentUser: {
@@ -36,6 +36,11 @@ const userReducer = (state = INITIAL_STATE, action) => {
           email: action.payload.email
         },
       }
+    case UserActionTypes.USER_RESET_MESSAGE:
+      return {
+        ...state,
+        loginError: ''
+      };
     default:
       return state;
   }

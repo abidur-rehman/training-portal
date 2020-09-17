@@ -1,9 +1,11 @@
 import axios from 'axios';
+import envConfig from '../server/config/config';
 
-// const baseURL = `http://192.168.1.4:31115`;
+envConfig();
+const baseURL = `${global.gConfig.API_SERVER_URL}`;
 
 export const restApi = axios.create({
-  // baseURL,
+  baseURL,
   timeout: 5000,
   headers: { 'Content-Type': 'application/json' }
 });
@@ -25,7 +27,7 @@ restApi.interceptors.response.use((response) => {
 export const authenticate = async (email, password) => {
   const requestParameters = {
     method: 'POST',
-    url: '/api/users/login',
+    url: '/authenticate',
     data: {
       email,
       password: password
@@ -34,6 +36,7 @@ export const authenticate = async (email, password) => {
   return restApi.request(requestParameters)
     .then(response => response)
     .catch((err) => {
+      console.log(`err ${JSON.stringify(err)}`);
       return err.response;
     });
 };
@@ -41,7 +44,7 @@ export const authenticate = async (email, password) => {
 export const signup = (name, firstname, lastname, email, password) => {
   const requestParameters = {
     method: 'POST',
-    url: '/api/users/signup',
+    url: '/user/signup',
     data: {
       name,
       firstname,
@@ -57,10 +60,15 @@ export const signup = (name, firstname, lastname, email, password) => {
     });
 };
 
-export const updatePro = ({ firstname, lastname, email, emailOriginal }) => {
+export const updatePro = (payload, user) => {
+  const { firstname, lastname, email, emailOriginal } = payload;
+  const { token } = user;
   const requestParameters = {
-    method: 'POST',
-    url: '/api/users/updateProfile',
+    method: 'PUT',
+    url: '/user/profile',
+    headers: {
+      Authorization: `Bearer ${token}`
+    },
     data: {
       firstname,
       lastname,
@@ -75,10 +83,15 @@ export const updatePro = ({ firstname, lastname, email, emailOriginal }) => {
     });
 };
 
-export const updatePass = ({ email, password, newPassword }) => {
+export const updatePass = (payload, user) => {
+  const { email, password, newPassword } = payload;
+  const { token } = user;
   const requestParameters = {
-    method: 'POST',
-    url: '/api/users/updatePass',
+    method: 'PUT',
+    url: '/user/password',
+    headers: {
+      Authorization: `Bearer ${token}`
+    },
     data: {
       email,
       password,
@@ -108,6 +121,42 @@ export const getQuizData = () => {
   const requestParameters = {
     method: 'GET',
     url: `/api/quizdata`
+  };
+  return restApi.request(requestParameters)
+    .then(response => response)
+    .catch((err) => {
+      return err.response;
+    });
+};
+
+export const getMyCoursesApi = ({ userId, token }) => {
+  const requestParameters = {
+    method: 'GET',
+    url: `/courses?userId=${userId}`,
+    headers: {
+      Authorization: `Bearer ${token}`
+    },
+  };
+  return restApi.request(requestParameters)
+    .then(response => response)
+    .catch((err) => {
+      return err.response;
+    });
+};
+
+export const updateUserCourseApi = (user, courseId) => {
+  const { userId, token, timeSpent } = user;
+  const requestParameters = {
+    method: 'POST',
+    url: '/updateUserCourse',
+    headers: {
+      Authorization: `Bearer ${token}`
+    },
+    data: {
+      userId,
+      courseId,
+      timeSpent
+    }
   };
   return restApi.request(requestParameters)
     .then(response => response)

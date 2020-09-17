@@ -24,7 +24,6 @@ const dataCompleted = [
 
 class PiChartComponent extends PureComponent {
   render() {
-    console.log(`PiChartComponent currentUser ${JSON.stringify(this.props)}`);
     return (
       <MainContainer>
         <TextContainer>

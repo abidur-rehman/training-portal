@@ -3,6 +3,7 @@ import ReactPlayer from 'react-player'
 
 
 export const PlayerContainer = styled.div`
+  padding: 90px 10px;
 `;
 
 export const PlayerWrapper = styled.div`
