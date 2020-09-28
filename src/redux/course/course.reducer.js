@@ -10,7 +10,7 @@ const initialState = {
 
 const normalize = (courses) => {
   const result = courses.filter((item) => {
-    return item.progress < 100;
+    return item.progress < 100 && item.progress > 0;
   })
   return result;
 }
